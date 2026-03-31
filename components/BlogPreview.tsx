@@ -2,6 +2,7 @@
 
 import PostCard from './PostCard';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 const recentPosts = [
   {
@@ -23,13 +24,29 @@ const recentPosts = [
 ];
 
 export default function BlogPreview() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-24 bg-noir">
       <div className="container">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <h2 className="font-cormorant text-5xl mb-4 tracking-wide">Journal</h2>
-            <div className="w-16 h-px bg-champagne"></div>
+            <h2 className="scroll-reveal font-cormorant text-5xl mb-4 tracking-wide">Journal</h2>
+            <div className="scroll-reveal w-16 h-px bg-champagne"></div>
           </div>
           <Link
             href="/blog"

@@ -10,14 +10,14 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 text-center container max-w-4xl">
-        <h1 className="font-cormorant text-6xl md:text-7xl font-light tracking-tight mb-6 leading-tight">
+        <h1 className="fade-up fade-up-delay-1 font-cormorant text-6xl md:text-7xl font-light tracking-tight mb-6 leading-tight">
           Where Craft Meets Concept
         </h1>
-        <p className="font-montserrat text-lg md:text-xl font-light text-mist mb-12 max-w-2xl mx-auto">
+        <p className="fade-up fade-up-delay-2 font-montserrat text-lg md:text-xl font-light text-mist mb-12 max-w-2xl mx-auto">
           Maison Madox designs objects, spaces, and ideas that transcend the ephemeral.
           We believe in the power of restraint and the language of luxury.
         </p>
-        <button className="bg-champagne text-noir font-montserrat font-medium px-8 py-3 hover:bg-marble transition-colors uppercase tracking-wider text-sm">
+        <button className="fade-up fade-up-delay-3 bg-champagne text-noir font-montserrat font-medium px-8 py-3 hover:bg-marble transition-colors uppercase tracking-wider text-sm">
           Explore Our Work
         </button>
       </div>

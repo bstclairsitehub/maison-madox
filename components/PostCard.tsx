@@ -19,8 +19,8 @@ export default function PostCard({
 }: PostCardProps) {
   return (
     <Link href={`/blog/${slug}`}>
-      <article className="group cursor-pointer">
-        <div className="bg-graphite h-64 mb-6 flex items-center justify-center overflow-hidden">
+      <article className="scroll-reveal group cursor-pointer hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out">
+        <div className="bg-graphite h-64 mb-6 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-700 ease-out">
           <div className="text-center text-mist font-montserrat font-light">
             [Article Image]
           </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { useEffect } from 'react';
 
 const projects = [
   {
@@ -24,19 +24,35 @@ const projects = [
 ];
 
 export default function ProjectsGrid() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-24 bg-graphite">
       <div className="container">
-        <h2 className="font-cormorant text-5xl mb-4 tracking-wide">Selected Work</h2>
-        <div className="w-16 h-px bg-champagne mb-12"></div>
+        <h2 className="scroll-reveal font-cormorant text-5xl mb-4 tracking-wide">Selected Work</h2>
+        <div className="scroll-reveal w-16 h-px bg-champagne mb-12"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group cursor-pointer relative overflow-hidden"
+              className="scroll-reveal group cursor-pointer relative overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out"
             >
-              <div className="bg-noir h-96 mb-6 flex items-center justify-center relative">
+              <div className="bg-noir h-96 mb-6 flex items-center justify-center relative group-hover:scale-105 transition-transform duration-700 ease-out overflow-hidden">
                 <div className="text-center text-mist font-montserrat font-light">
                   [Project Image]
                 </div>
