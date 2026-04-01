@@ -8,19 +8,19 @@ const products = [
     id: 1,
     name: 'Obsidian Candle Set',
     price: '€485',
-    image: '/placeholder-product-1.jpg',
+    image: 'https://images.unsplash.com/photo-1602607616816-74557e31e2f8?w=600&h=600&fit=crop',
   },
   {
     id: 2,
     name: 'Marble Throw Blanket',
     price: '€680',
-    image: '/placeholder-product-2.jpg',
+    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=600&fit=crop',
   },
   {
     id: 3,
     name: 'Champagne Glassware',
     price: '€380',
-    image: '/placeholder-product-3.jpg',
+    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed514?w=600&h=600&fit=crop',
   },
 ];
 
@@ -51,9 +51,11 @@ export default function ProductsGrid() {
           {products.map((product) => (
             <div key={product.id} className="scroll-reveal group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out">
               <div className="bg-graphite h-80 mb-6 flex items-center justify-center overflow-hidden relative group-hover:scale-105 transition-transform duration-700 ease-out">
-                <div className="text-center text-mist font-montserrat font-light">
-                  [Product Image]
-                </div>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-champagne opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
               </div>
               <h3 className="font-cormorant text-2xl mb-2 tracking-wide">

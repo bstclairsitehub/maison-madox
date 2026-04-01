@@ -34,10 +34,12 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="scroll-reveal bg-noir h-96 flex items-center justify-center rounded-lg hover:shadow-2xl transition-all duration-500 ease-out group-hover:scale-105">
-                <div className="text-center text-mist font-montserrat font-light">
-                  [About Image]
-                </div>
+              <div className="scroll-reveal bg-noir h-96 flex items-center justify-center rounded-lg hover:shadow-2xl transition-all duration-500 ease-out group-hover:scale-105 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=600&fit=crop"
+                  alt="Maison Madox studio"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             <div>

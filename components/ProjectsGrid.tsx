@@ -7,19 +7,19 @@ const projects = [
     id: 1,
     title: 'Palais des Rêves',
     category: 'Interior Design',
-    image: '/placeholder-project-1.jpg',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop',
   },
   {
     id: 2,
     title: 'Nocturne Collection',
     category: 'Fashion',
-    image: '/placeholder-project-2.jpg',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
   },
   {
     id: 3,
     title: 'Archive: The Exhibition',
     category: 'Curation',
-    image: '/placeholder-project-3.jpg',
+    image: 'https://images.unsplash.com/photo-1577720643272-265f09367456?w=600&h=400&fit=crop',
   },
 ];
 
@@ -53,9 +53,11 @@ export default function ProjectsGrid() {
               className="scroll-reveal group cursor-pointer relative overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out"
             >
               <div className="bg-noir h-96 mb-6 flex items-center justify-center relative group-hover:scale-105 transition-transform duration-700 ease-out overflow-hidden">
-                <div className="text-center text-mist font-montserrat font-light">
-                  [Project Image]
-                </div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-noir opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
               </div>
               <div className="relative z-10">
