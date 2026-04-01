@@ -17,7 +17,7 @@ export default function PostCard({
   excerpt,
   date,
   category,
-  index = 0,
+  index: _index = 0,
 }: PostCardProps) {
   return (
     <Link href={`/blog/${slug}`}>
