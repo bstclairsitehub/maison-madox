@@ -41,32 +41,43 @@ export default function ProjectsGrid() {
   }, []);
 
   return (
-    <section className="py-24 bg-graphite">
-      <div className="container">
-        <h2 className="scroll-reveal font-cormorant text-5xl mb-4 tracking-wide">Selected Work</h2>
-        <div className="scroll-reveal w-16 h-px bg-champagne mb-12"></div>
+    <section className="py-32 bg-graphite relative">
+      {/* Subtle noise texture */}
+      <div className="absolute inset-0 opacity-3" style={{
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter3\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' result=\'noise\' /%3E%3C/filter%3E%3Crect width=\'400\' height=\'400\' fill=\'%23fff\' filter=\'url(%23noiseFilter3)\' opacity=\'0.05\'/%3E%3C/svg%3E")',
+      }} />
+      <div className="container relative z-10">
+        <div className="mb-16">
+          <h2 className="scroll-reveal font-cormorant text-6xl md:text-7xl mb-6 tracking-tight">Selected Work</h2>
+          <div className="section-divider"></div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+          {projects.map((project, idx) => (
             <div
               key={project.id}
-              className="scroll-reveal group cursor-pointer relative overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out"
+              className="scroll-reveal group cursor-pointer relative overflow-hidden hover:-translate-y-3 transition-all duration-500 ease-out shadow-lg hover:shadow-2xl hover:shadow-champagne/20"
+              style={{ transitionDelay: `${idx * 0.1}s` }}
             >
-              <div className="bg-noir h-96 mb-6 flex items-center justify-center relative group-hover:scale-105 transition-transform duration-700 ease-out overflow-hidden">
+              <div className="bg-noir h-96 md:h-[450px] flex items-center justify-center relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-noir opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                {/* Gradient overlay that reveals on hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-noir opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-champagne opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </div>
-              <div className="relative z-10">
-                <h3 className="font-cormorant text-2xl mb-1 tracking-wide">
-                  {project.title}
-                </h3>
-                <p className="text-mist font-montserrat text-xs uppercase tracking-widest font-light">
-                  {project.category}
-                </p>
+              <div className="absolute inset-0 flex flex-col justify-end p-8 group-hover:translate-y-0 translate-y-4 group-hover:translate-y-0 transition-all duration-500 z-20">
+                <div className="relative z-30">
+                  <h3 className="font-cormorant text-3xl md:text-4xl mb-2 tracking-wide text-marble group-hover:text-champagne transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-marble/80 font-montserrat text-xs uppercase tracking-widest font-light">
+                    {project.category}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

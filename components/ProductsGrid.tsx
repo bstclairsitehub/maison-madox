@@ -42,31 +42,41 @@ export default function ProductsGrid() {
   }, []);
 
   return (
-    <section className="py-24 bg-noir">
-      <div className="container">
-        <h2 className="scroll-reveal font-cormorant text-5xl mb-4 tracking-wide">Products</h2>
-        <div className="scroll-reveal w-16 h-px bg-champagne mb-12"></div>
+    <section className="py-32 bg-noir relative">
+      {/* Subtle noise texture */}
+      <div className="absolute inset-0 opacity-3" style={{
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter2\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' result=\'noise\' /%3E%3C/filter%3E%3Crect width=\'400\' height=\'400\' fill=\'%23fff\' filter=\'url(%23noiseFilter2)\' opacity=\'0.05\'/%3E%3C/svg%3E")',
+      }} />
+      <div className="container relative z-10">
+        <div className="mb-16">
+          <h2 className="scroll-reveal font-cormorant text-6xl md:text-7xl mb-6 tracking-tight">Products</h2>
+          <div className="section-divider"></div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {products.map((product) => (
-            <div key={product.id} className="scroll-reveal group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out">
-              <div className="bg-graphite h-80 mb-6 flex items-center justify-center overflow-hidden relative group-hover:scale-105 transition-transform duration-700 ease-out">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+          {products.map((product, idx) => (
+            <div key={product.id} className="scroll-reveal group" style={{ transitionDelay: `${idx * 0.1}s` }}>
+              <div className="bg-graphite h-96 mb-8 flex items-center justify-center overflow-hidden relative group-hover:-translate-y-3 transition-all duration-500 ease-out shadow-lg group-hover:shadow-2xl group-hover:shadow-champagne/20">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-champagne opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                {/* Gradient overlay that reveals on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-noir via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-champagne opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
               </div>
-              <h3 className="font-cormorant text-2xl mb-2 tracking-wide">
-                {product.name}
-              </h3>
-              <p className="text-mist font-montserrat font-light mb-4">
-                {product.price}
-              </p>
-              <Link href="/" className="font-montserrat text-sm font-light border-b border-champagne text-champagne hover:text-marble hover:border-marble transition-colors">
-                View Collection
-              </Link>
+              <div className="space-y-3">
+                <h3 className="font-cormorant text-2xl md:text-3xl tracking-wide group-hover:text-champagne transition-colors duration-300 leading-tight">
+                  {product.name}
+                </h3>
+                <p className="text-mist/80 font-montserrat font-light text-base tracking-wide">
+                  {product.price}
+                </p>
+                <Link href="/" className="inline-block font-montserrat text-sm font-light border-b-2 border-champagne text-champagne hover:text-marble hover:border-marble transition-all duration-300 pb-1">
+                  View Collection
+                </Link>
+              </div>
             </div>
           ))}
         </div>
