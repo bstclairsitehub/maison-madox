@@ -134,10 +134,12 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         <div className="py-16">
           <div className="container">
-            <div className="bg-graphite h-96 mb-16 flex items-center justify-center rounded-lg">
-              <div className="text-center text-mist font-montserrat font-light">
-                [Article Feature Image]
-              </div>
+            <div className="bg-graphite h-96 mb-16 flex items-center justify-center rounded-lg overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&h=600&fit=crop"
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="max-w-3xl prose prose-invert mx-auto font-montserrat font-light text-marble leading-relaxed">

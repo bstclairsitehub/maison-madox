@@ -24,7 +24,7 @@ export default function PostCard({
       <article className="scroll-reveal group cursor-pointer hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 ease-out">
         <div className="bg-graphite h-80 mb-8 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-700 ease-out relative">
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop"
+            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop"
             alt={title}
             className="w-full h-full object-cover"
           />
