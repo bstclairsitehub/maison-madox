@@ -24,10 +24,10 @@ export default function HeroSection() {
       />
 
       {/* Dark Gradient Overlay for Text Readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-noir z-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-noir z-[5]"></div>
 
       {/* Subtle Noise Texture */}
-      <div className="absolute inset-0 opacity-5 z-5" style={{
+      <div className="absolute inset-0 opacity-5 z-[5]" style={{
         backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' result=\'noise\' /%3E%3C/filter%3E%3Crect width=\'400\' height=\'400\' fill=\'%23fff\' filter=\'url(%23noiseFilter)\' opacity=\'0.05\'/%3E%3C/svg%3E")',
       }} />
 
